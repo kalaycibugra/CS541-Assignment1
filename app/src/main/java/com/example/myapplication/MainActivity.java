@@ -25,13 +25,23 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                Intent Email = new Intent(Intent.ACTION_SEND);
+                Email.setType("text/email");
+                Email.putExtra(Intent.EXTRA_EMAIL,
+                        new String[]{"kalaycibugra@gmail.com"});  //developer 's email
+                Email.putExtra(Intent.EXTRA_SUBJECT,
+                        "Add your Subject"); // Email 's Subject
+                Email.putExtra(Intent.EXTRA_TEXT, "Dear Bugra,"+"\n"+"Hello again!!" + "");  //Email 's Greeting text
+                startActivity(Intent.createChooser(Email, "Say hello to the developer:"));
             }
+
         });
         final Button button = findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                // Code here executes on main thread after user presses button
                 Intent viewIntent =
                         new Intent("android.intent.action.VIEW",
                                 Uri.parse("https://www.google.com/search?q=hello+world&oq=hello+world&aqs=chrome..69i57j69i60j0l4.2031j0j9&sourceid=chrome&ie=UTF-8"));
