@@ -30,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent Email = new Intent(Intent.ACTION_SEND);
                 Email.setType("text/email");
                 Email.putExtra(Intent.EXTRA_EMAIL,
-                        new String[]{"kalaycibugra@gmail.com"});  //developer 's email
+                        new String[]{"kalaycibugra@gmail.com"});
                 Email.putExtra(Intent.EXTRA_SUBJECT,
-                        "Add your Subject"); // Email 's Subject
-                Email.putExtra(Intent.EXTRA_TEXT, "Dear Bugra,"+"\n"+"Hello again!!" + "");  //Email 's Greeting text
+                        "Add your Subject");
+                Email.putExtra(Intent.EXTRA_TEXT, "Dear Bugra,"+"\n"+"Hello again!!" + "");
                 startActivity(Intent.createChooser(Email, "Say hello to the developer:"));
             }
 
@@ -48,8 +48,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(viewIntent);
             }
         });
-    }
 
+    }
+    public void openVideo(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.youtube.com/watch?v=VG4fH-Bm-rI&feature=youtu.be"));
+        startActivity(browserIntent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
