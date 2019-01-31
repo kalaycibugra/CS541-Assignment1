@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-        final Button button = findViewById(R.id.button2);
+        Button button = findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
@@ -46,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
                         new Intent("android.intent.action.VIEW",
                                 Uri.parse("https://www.google.com/search?q=hello+world&oq=hello+world&aqs=chrome..69i57j69i60j0l4.2031j0j9&sourceid=chrome&ie=UTF-8"));
                 startActivity(viewIntent);
+            }
+        });
+        Button button1 = findViewById(R.id.button12);
+        button1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                Intent nextPage = new Intent(MainActivity.this,second.class);
+                startActivity(nextPage);
             }
         });
 
